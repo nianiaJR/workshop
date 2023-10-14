@@ -1,0 +1,27 @@
+syntax = "v1"
+
+type (
+	Post {
+		Id        string `json:"id"`
+		Title     string `json:"title"`
+		Content   string `json:"content"`
+		CreatedAt string `json:"createdAt"`
+		UpdatedAt string `json:"updatedAt"`
+	}
+
+	GetPostsReq {
+	}
+	GetPostsResp {
+		List  []Post `json:"list"`
+		Total int    `json:"total"`
+	}
+)
+
+@server (
+	group: posts
+)
+
+service cms-api {
+	@handler getPosts
+	get /api/posts(GetPostsReq) returns(GetPostsResp)
+}
