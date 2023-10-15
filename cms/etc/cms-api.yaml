@@ -1,3 +1,6 @@
 Name: cms-api
 Host: 0.0.0.0
 Port: 8888
+Database:
+  DataSourceName: "${CONFIG_CMS_DATABASE_DSN}"
+  AutoMigrate: true
